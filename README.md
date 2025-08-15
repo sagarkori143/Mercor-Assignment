@@ -195,3 +195,20 @@ Run tests with: `npm test`
 - ✅ Binary search optimization
 - ✅ Custom precision support
 
+## Continuous Integration
+
+This project uses GitHub Actions for CI. All tests are automatically run on push and pull request to the `main` branch using Node.js 18.x and 20.x.
+
+## AI Tool Usage
+
+AI tools (such as GitHub Copilot and ChatGPT) were used for:
+- Debugging and brainstorming
+- Generating boilerplate code
+- Looking up documentation and syntax
+
+All logic and design choices were reviewed and are fully understood by the author. See the code comments and this README for explanations of all major decisions.
+
+---
+
+If you have any questions about the implementation or design, please refer to the code comments or open an issue.
+
