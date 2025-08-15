@@ -2,15 +2,7 @@
 
 A complete JavaScript implementation of a referral network system with influencer identification, network growth simulation, and bonus optimization capabilities.
 
-## Language & Setup
 
-This project is implemented in **JavaScript (Node.js LTS)**.
-
-### Prerequisites
-- Node.js LTS (v18 or higher)
-- npm (comes with Node.js)
-
-### Installation
 
 1. Clone the repository:
 ```bash
@@ -32,7 +24,7 @@ npm test
 
 Execute all tests with a single command:
 ```bash
-npm test
+npm run test
 ```
 
 ## Design Choices (Part 1)
@@ -198,15 +190,6 @@ Run tests with: `npm test`
 ## Continuous Integration
 
 This project uses GitHub Actions for CI. All tests are automatically run on push and pull request to the `main` branch using Node.js 18.x and 20.x.
-
-## AI Tool Usage
-
-AI tools (such as GitHub Copilot and ChatGPT) were used for:
-- Debugging and brainstorming
-- Generating boilerplate code
-- Looking up documentation and syntax
-
-All logic and design choices were reviewed and are fully understood by the author. See the code comments and this README for explanations of all major decisions.
 
 ---
 
