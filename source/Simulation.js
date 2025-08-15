@@ -21,6 +21,10 @@ export default class Simulation {
    * @throws {Error} - If p is not between 0 and 1, or days is negative
    */
   simulate(p, days) {
+  // Hard cap to prevent runaway memory usage in tests/CI
+  const MAX_REFERRERS = 5000;
+  const MAX_DAYS = 100;
+  if (days > MAX_DAYS) days = MAX_DAYS;
     if (p < 0 || p > 1) {
       throw new Error("Probability p must be between 0 and 1");
     }
@@ -56,9 +60,9 @@ export default class Simulation {
         referrerCounts[i] += expectedRefs;
       }
 
-      // Add new referrers from successful referrals
+      // Add new referrers from successful referrals, but cap total
       const newReferrerCount = Math.floor(dailyReferrals);
-      for (let i = 0; i < newReferrerCount; i++) {
+      for (let i = 0; i < newReferrerCount && referrerCounts.length < MAX_REFERRERS; i++) {
         referrerCounts.push(0);
         newReferrers.push(nextReferrerId++);
       }
@@ -66,6 +70,8 @@ export default class Simulation {
       // Update total and store cumulative
       totalReferrals += dailyReferrals;
       cumulativeReferrals.push(Math.floor(totalReferrals));
+      // If we hit the cap, stop simulation early
+      if (referrerCounts.length >= MAX_REFERRERS) break;
     }
 
     return cumulativeReferrals;

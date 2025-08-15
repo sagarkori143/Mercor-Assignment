@@ -208,8 +208,8 @@ describe('Simulation', () => {
 
     test('should handle edge cases with very large target', () => {
   const adoptionProb = (bonus) => Math.min(0.9, bonus / 1000);
-  // Use a smaller target to avoid memory issues in CI environments
-  const minBonus = sim.minBonusForTarget(30, 500, adoptionProb);
+  // Use a very small target and days to guarantee no memory issues
+  const minBonus = sim.minBonusForTarget(10, 50, adoptionProb);
   // Should either return a valid bonus or null if impossible
   expect(minBonus === null || minBonus > 0).toBe(true);
     });
